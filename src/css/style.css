@@ -103,6 +103,17 @@ button {
   text-align: center;
 }
 
+.cart .badge {
+  position: absolute;
+  top: 2px;
+  right: -10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: orange;
+  color: black;
+}
+
 .cart svg {
   width: 25px;
 }
