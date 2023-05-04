@@ -1,8 +1,8 @@
-import { setLocalStorage, getLocalStorage, getParameter } from './utils.mjs';
+import { setLocalStorage, getLocalStorage} from './utils.mjs';
 import { findProductById } from './productData.mjs';
 
 
-let product = {findProductById};
+let product = {};
 
 
 export default async function productDetails(productId) {
@@ -11,26 +11,23 @@ export default async function productDetails(productId) {
   // once we have the product details we can render out the HTML
   renderProductDetails();
   // once the HTML is rendered we can add a listener to Add to Cart button
-  document.getElementById("addToCart").addEventListener("click", addProductToCart);
+  document.getElementById('addToCart').addEventListener('click', addProductToCart);
 }
 
-function addProductToCart(product) {
-    const currentCart = getLocalStorage('so-cart') || [];
-    const updatedCart = [...currentCart, product];
-    setLocalStorage('so-cart', updatedCart);
-  }
+function addProductToCart() {
+  const currentCart = getLocalStorage('so-cart') || [];
+  const updatedCart = [...currentCart, product];
+  setLocalStorage('so-cart', updatedCart);
+}
 
 
-  function renderProductDetails() {
-    document.querySelector("#productName").innerText = product.Brand.Name;
-    document.querySelector("#productNameWithoutBrand").innerText =
-      product.NameWithoutBrand;
-    document.querySelector("#productImage").src = product.Image;
-    document.querySelector("#productImage").alt = product.Name;
-    document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
-    document.querySelector("#productColorName").innerText =
-      product.Colors[0].ColorName;
-    document.querySelector("#productDescriptionHtmlSimple").innerHTML =
-      product.DescriptionHtmlSimple;
-    document.querySelector("#addToCart").dataset.id = product.Id;
-  }
+function renderProductDetails() {
+  document.querySelector('#productName').innerText = product.Brand.Name;
+  document.querySelector('#productNameWithoutBrand').innerText = product.NameWithoutBrand;
+  document.querySelector('#productImage').src = product.Image;
+  document.querySelector('#productImage').alt = product.Name;
+  document.querySelector('#productFinalPrice').innerText = product.FinalPrice;
+  document.querySelector('#productColorName').innerText = product.Colors[0].ColorName;
+  document.querySelector('#productDescriptionHtmlSimple').innerHTML = product.DescriptionHtmlSimple;
+  document.querySelector('#addToCart').dataset.id = product.Id;
+}
