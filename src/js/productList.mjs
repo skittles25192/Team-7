@@ -4,8 +4,9 @@ import { renderListWithTemplate } from './utils.mjs';
 export default async function productList(selector, category) {
 
     const element = document.querySelector(selector);
-    const  product = await getData(category);
-    renderListWithTemplate(productCardTemplate, element, product, 'afterbegin', true);
+    const  products = await getData(category);
+    const filterProducts = products.filter(product => product.FinalPrice > 100 && product.FinalPrice < 200);
+    renderListWithTemplate(productCardTemplate, element, filterProducts, 'afterbegin', true);
 }
 
 function productCardTemplate(product) {
