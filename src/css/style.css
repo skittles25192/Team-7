@@ -231,3 +231,18 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+#superscript {
+  background-color: #e28431;;
+  color: black;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 2px 10px;
+  z-index: 2;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
