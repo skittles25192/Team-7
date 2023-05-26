@@ -5,15 +5,14 @@ export default async function productList(selector, category) {
 
     const element = document.querySelector(selector);
     const  products = await getData(category);
-    const filterProducts = products.filter(product => product.FinalPrice > 100 && product.FinalPrice < 200);
-    renderListWithTemplate(productCardTemplate, element, filterProducts, 'afterbegin', true);
+    renderListWithTemplate(productCardTemplate, element, products, 'afterbegin', true);
 }
 
 function productCardTemplate(product) {
     return `<li class="product-card">
-    <a href="product_pages/index.html?product=${product.Id}">
+    <a href="/product_pages/index.html?product=${product.Id}">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>

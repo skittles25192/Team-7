@@ -1,6 +1,6 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-headline: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -144,6 +144,12 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
+
+.product-list.cart-list{
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
@@ -233,7 +239,7 @@ footer {
 }
 
 #superscript {
-  background-color: #e28431;;
+  background-color: #e28431;
   color: black;
   font-family: var(--font-body);
   font-size: 12px;
@@ -246,3 +252,15 @@ footer {
   left: 10px;
 }
 
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  list-style: none;
+  gap: 50px;
+}
+
+.products-grid a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
