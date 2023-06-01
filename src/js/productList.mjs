@@ -9,7 +9,7 @@ export default async function productList(selector, category) {
 }
 
 function productCardTemplate(product) {
-    return `<li class="product-card">
+    return `<li title="${product.Name}" id="${product.FinalPrice}" class="product-card">
     <a href="/product_pages/index.html?product=${product.Id}">
     <img
       src="${product.Images.PrimaryMedium}"
