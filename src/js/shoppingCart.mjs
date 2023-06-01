@@ -1,9 +1,18 @@
 import { getLocalStorage, renderListWithTemplate } from './utils.mjs';
 
-export default function shoppingCart() {
+export default function ShoppingCart() {
   const cartItems = getLocalStorage('so-cart');
-  const cartElement = document.querySelector('.product-list');
+  const cartElement = document.querySelector('.product-list');  
   renderListWithTemplate(cartItemTemplate, cartElement, cartItems);
+  //functionality to add total
+  const subTotal = cartItems ? cartItems.reduce((acc, currentItem) => acc + currentItem.FinalPrice, 0) : 0;
+  const itemCount = cartItems ? cartItems.length : 0;
+  //Add the subtotal to the cart page
+  if(cartItems.length != 0) {
+    document.querySelector('.cart-total').textContent = `Subtotal: (${itemCount} Products) - $${subTotal.toFixed(2)}`;
+  } else {
+    document.querySelector('.cart-footer').classList.add('hide');
+  }
 }
 
 function cartItemTemplate(item) {
