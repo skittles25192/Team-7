@@ -1,5 +1,5 @@
 import { setLocalStorage, getLocalStorage} from './utils.mjs';
-import { findProductById } from './productData.mjs';
+import { findProductById } from './externalServices.mjs';
 
 export default async function productDetails(productId) {
   // get the details for the current product. findProductById will return a promise! use await or .then() to process it
