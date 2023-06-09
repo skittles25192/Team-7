@@ -2,10 +2,9 @@ import { getProductsByCategory } from './externalServices.mjs';
 import { renderListWithTemplate } from './utils.mjs';
 
 export default async function productList(selector, category) {
-
-    const element = document.querySelector(selector);
-    const  products = await getProductsByCategory(category);
-    renderListWithTemplate(productCardTemplate, element, products, 'afterbegin', true);
+  const element = document.querySelector(selector);
+  const  products = await getProductsByCategory(category);
+  renderListWithTemplate(productCardTemplate, element, products, 'afterbegin', true);
 }
 
 function productCardTemplate(product) {

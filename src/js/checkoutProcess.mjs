@@ -1,5 +1,6 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
 import { checkout } from './externalServices.mjs';
+import { alertMessage, removeAllAlerts } from './utils.mjs';
 
 // takes a form element and returns an object where the key is the "name" of the form input.
 function formDataToJSON(formElement) {
@@ -11,20 +12,20 @@ function formDataToJSON(formElement) {
     });
   
     return convertedJSON;
-}
+  }
   
-function packageItems(items) {
-const simplifiedItems = items.map((item) => {
-    console.log(item);
-    return {
-    id: item.Id,
-    price: item.FinalPrice,
-    name: item.Name,
-    quantity: 1,
-    };
-});
-return simplifiedItems;
-}
+  function packageItems(items) {
+    const simplifiedItems = items.map((item) => {
+      console.log(item);
+      return {
+        id: item.Id,
+        price: item.FinalPrice,
+        name: item.Name,
+        quantity: 1,
+      };
+    });
+    return simplifiedItems;
+  }
 
 const checkoutProcess = {
     key: '',
@@ -85,7 +86,21 @@ const checkoutProcess = {
     try {
       const res = await checkout(json);
       console.log(res);
+      location.assign('/checkout/success.html');
+      //Cleans all the local storage
+      //localStorage.clear();
+      //clear the cart
+      setLocalStorage('so-cart', []);
     } catch (err) {
+      console.log(err);
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      err.message
+        .then((resolvedValue) => {
+          for(let key in resolvedValue) {
+            alertMessage(resolvedValue[key]);
+          }
+        });
       console.log(err);
     }
   },
