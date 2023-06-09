@@ -43,7 +43,7 @@ function cartItemTemplate(item) {
 }
 
 function removeItem() {
-  let cartList = document.querySelectorAll('.cart-list li');
+  let cartList = document.querySelectorAll('.cart-list li i');
   let cartProducts = [...cartList];
 
   for (let i = 0; i < cartList.length; i++) {

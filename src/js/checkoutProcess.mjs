@@ -92,6 +92,7 @@ const checkoutProcess = {
       //clear the cart
       setLocalStorage('so-cart', []);
     } catch (err) {
+      console.log(err);
       // get rid of any preexisting alerts.
       removeAllAlerts();
       err.message
