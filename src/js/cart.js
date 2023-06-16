@@ -1,9 +1,11 @@
 import { loadHeaderFooter } from './utils.mjs';
 import { updateCartCount } from './superscript.mjs';
 import shoppingCart from './shoppingCart.mjs';
+import { checkLogin } from './auth.mjs';
 
 loadHeaderFooter()
   .then(() => {
+    checkLogin();
     updateCartCount();
     shoppingCart();
   })

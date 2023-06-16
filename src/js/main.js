@@ -2,10 +2,9 @@ import { loadHeaderFooter } from './utils.mjs';
 import { updateCartCount } from './superscript.mjs';
 import { checkLogin } from './auth.mjs';
 
-checkLogin();
-
 loadHeaderFooter()
   .then(() => {
+    checkLogin();
     updateCartCount();
   })
   .catch((error) => {
