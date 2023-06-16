@@ -10,4 +10,3 @@ loadHeaderFooter()
   .catch((error) => {
     alert('Error loading header and footer: ' + error);
   });
-
