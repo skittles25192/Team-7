@@ -22,20 +22,20 @@ const productId = getParameter('product');
 //     });
 
 async function loadAsyncFn() {
-    try {
-        await productDetails(productId);
-        await loadHeaderFooter();
+  try {
+    await productDetails(productId);
+    await loadHeaderFooter();
 
+    updateCartCount();
+    const addToCartBtn = document.querySelector('#addToCart');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', () => {
         updateCartCount();
-        const addToCartBtn = document.querySelector('#addToCart');
-        if (addToCartBtn) {
-            addToCartBtn.addEventListener('click', () => {
-            updateCartCount();
-            });
-        }
-    } catch (error) {
-        alert('Error loading header and footer or Product Details: ' + error);
+      });
     }
+  } catch (error) {
+    alert('Error loading header and footer or Product Details: ' + error);
+  }
 }
 
 loadAsyncFn();

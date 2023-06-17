@@ -81,7 +81,8 @@ header {
   color: var(--tertiary-color);
 }
 
-button, .submitBtn {
+button,
+.submitBtn {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -93,7 +94,8 @@ button, .submitBtn {
   margin-bottom: 10px;
 }
 
-button:hover, .submitBtn:hover {
+button:hover,
+.submitBtn:hover {
   background-color: #474e0e;
 }
 
@@ -141,7 +143,7 @@ button:hover, .submitBtn:hover {
   padding: 0;
 }
 
-.product-list.cart-list{
+.product-list.cart-list {
   flex-direction: column;
   justify-content: space-around;
 }
@@ -227,7 +229,7 @@ button:hover, .submitBtn:hover {
   grid-row: 1;
   grid-column: 3;
   text-align: center;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .cart-card__delete:hover {
@@ -276,7 +278,7 @@ footer {
   gap: 50px;
 }
 
-.products-grid a{
+.products-grid a {
   text-decoration: none;
   color: black;
   text-align: center;
@@ -297,38 +299,40 @@ footer {
 .cart-footer a {
   text-decoration: none;
 }
-form {
+
+form, .login {
   padding: 0 3% 3% 3%;
   margin: 0 auto;
   max-width: 600px;
 }
 
-form fieldset {
+form fieldset, .login {
   margin: 2rem 0;
   border: 1px solid var(--dark-grey);
-  padding: .5rem 2%;
+  padding: 0.5rem 2%;
 }
 
-form legend {
+form legend, .login legend {
   color: var(--dark-grey);
   margin: 0 1rem;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   font-weight: 600;
   font-size: 1.2rem;
 }
 
-form label.top, form div {
+form label.top,
+form div, .login label.top {
   display: block;
   padding-top: 1rem;
   color: var(--dark-grey);
   font-weight: 600;
 }
 
-form label.top input{
+form label.top input, .login label.top input {
   display: block;
   font-size: 1rem;
   border: solid 1px var(--dark-grey);
-  padding: .75rem;
+  padding: 0.75rem;
   width: 100%;
 }
 
@@ -352,7 +356,7 @@ form label.top {
   font-family: var(--font-body);
   display: block;
   margin-left: 4.5px;
-  padding: .3rem;
+  padding: 0.3rem;
 }
 
 .title {
@@ -363,7 +367,7 @@ form label.top {
 
 .title::after {
   display: inline-block;
-  content: "";
+  content: '';
   border-top: 2px solid var(--primary-color);
   width: 80%;
   margin: 0 1rem;
@@ -388,14 +392,14 @@ form label.top {
   float: right;
   font-size: clamp(12px, 18px, 24px);
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .alert span:hover {
   transform: scale(1.1);
 }
 
-.alert p{
+.alert p {
   display: inline;
 }
 
@@ -404,11 +408,31 @@ form label.top {
 }
 
 @keyframes buzz {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .buzz-animation {
   animation: buzz 0.5s infinite;
 }
+
+.login {
+  margin: 30px auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login button {
+  margin-top: 20px;
+}
+
+

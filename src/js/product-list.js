@@ -1,6 +1,7 @@
 import productList from './productList';
 import { loadHeaderFooter, getParameter } from './utils.mjs';
 import { updateCartCount } from './superscript.mjs';
+import { checkLogin } from './auth.mjs';
 
 const category = getParameter('category');
 productList('.product-list', category);
@@ -8,12 +9,6 @@ productList('.product-list', category);
 loadHeaderFooter()
   .then(() => {
     updateCartCount();
-    const addToCartBtn = document.querySelector('#addToCart');
-    if (addToCartBtn) {
-      addToCartBtn.addEventListener('click', () => {
-        updateCartCount();
-      });
-    }
     document.querySelector('.title').innerHTML = toTitleCase(category);
   })
   .catch((error) => {
@@ -21,12 +16,7 @@ loadHeaderFooter()
   });
 
 function toTitleCase(str) {
-    return str.replace(
-      /([^\W_]+[^\s-]*) */g,
-      function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-    );
-  }
-
-
+  return str.replace(/([^\W_]+[^\s-]*) */g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
