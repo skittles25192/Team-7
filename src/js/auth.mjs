@@ -33,6 +33,7 @@ function isTokenValid(token) {
         return false;
       } else {
         // token not expired
+        console.log(decoded.exp * 1000)
         console.log('Valid token');
         return true;
       }
